@@ -1,6 +1,5 @@
 package cn.pipipan.eisproject.brokergatewayquery.domain;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,6 +13,25 @@ public class StopOrder{
     Side side;
     int unitPrice;
     Status status;
+    private String creationTime;
+    String traderName;
+
+    public String getTraderName() {
+        return traderName;
+    }
+
+    public void setTraderName(String traderName) {
+        this.traderName = traderName;
+    }
+
+
+    public String getCreationTime() {
+        return creationTime;
+    }
+
+    public void setCreationTime(String creationTime) {
+        this.creationTime = creationTime;
+    }
 
     public String getId() {
         return id;
