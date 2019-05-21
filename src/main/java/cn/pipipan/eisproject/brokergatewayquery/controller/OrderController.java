@@ -37,7 +37,7 @@ public class OrderController {
     public List<StopOrder> findStopOrder(){
         return stopOrderRepository.findAll();
     }
-    @GetMapping("/MarketOrderDTO")
+    @GetMapping("/MarketOrder")
     public List<MarketOrderDTO> findMarketOrderDTO(){
         return marketOrderDTORepository.findAll();
     }
