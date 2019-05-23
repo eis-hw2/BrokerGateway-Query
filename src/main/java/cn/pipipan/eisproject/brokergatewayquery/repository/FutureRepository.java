@@ -1,9 +1,9 @@
 package cn.pipipan.eisproject.brokergatewayquery.repository;
 
-import cn.pipipan.eisproject.brokergatewayquery.domain.MarketOrder;
+import cn.pipipan.eisproject.brokergatewayquery.domain.Future;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MarketOrderDTORepository extends MongoRepository<MarketOrder, String> {
+public interface FutureRepository extends MongoRepository<Future, String> {
 }
