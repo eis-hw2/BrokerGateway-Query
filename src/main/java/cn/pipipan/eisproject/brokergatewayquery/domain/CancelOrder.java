@@ -1,6 +1,5 @@
 package cn.pipipan.eisproject.brokergatewayquery.domain;
 
-import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Repository;
 
@@ -9,9 +8,7 @@ public class CancelOrder {
     @Id
     String id;
     Type targetType;
-    @ApiModelProperty(notes = "target for limit order")
     int unitPrice;
-    @ApiModelProperty(notes = "target for limit order")
     Side side;
     String targetId;
     String marketDepthId;
