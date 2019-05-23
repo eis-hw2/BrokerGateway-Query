@@ -3,8 +3,8 @@ package cn.pipipan.eisproject.brokergatewayquery.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
-public class FutureDTO {
+@Document(collection = "futureDTO")
+public class Future {
     @Id
     String id;
     String description;

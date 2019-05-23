@@ -3,15 +3,13 @@ package cn.pipipan.eisproject.brokergatewayquery.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
-public class LimitOrderDTO{
+@Document(collection = "marketOrderDTO")
+public class MarketOrder {
     @Id
-    private String id;
+    String id;
     private String marketDepthId;
     private int count;
-    private int unitPrice;
     private Side side;
-    private Status status;
     private String creationTime;
     String traderName;
 
@@ -40,8 +38,14 @@ public class LimitOrderDTO{
         this.status = status;
     }
 
+    private Status status;
+
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getMarketDepthId() {
@@ -56,18 +60,6 @@ public class LimitOrderDTO{
         return count;
     }
 
-    public void setCount(int count) {
-        this.count = count;
-    }
-
-    public int getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(int unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
     public Side getSide() {
         return side;
     }
@@ -76,7 +68,7 @@ public class LimitOrderDTO{
         this.side = side;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCount(int count) {
+        this.count = count;
     }
 }

@@ -6,8 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.ArrayList;
 import java.util.List;
 
-@Document
-public class MarketDepthDTO {
+@Document(collection = "marketDepthDTO")
+public class MarketDepth {
     class Composite{
         int price;
         int count;
@@ -38,7 +38,7 @@ public class MarketDepthDTO {
     List<Composite> buyers = new ArrayList<>();
     List<Composite> sellers = new ArrayList<>();
 
-    public MarketDepthDTO() {
+    public MarketDepth() {
     }
 
     public List<Composite> getBuyers() {

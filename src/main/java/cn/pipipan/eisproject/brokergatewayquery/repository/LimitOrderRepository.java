@@ -1,15 +1,14 @@
 package cn.pipipan.eisproject.brokergatewayquery.repository;
 
-import cn.pipipan.eisproject.brokergatewayquery.domain.StopOrder;
+import cn.pipipan.eisproject.brokergatewayquery.domain.LimitOrder;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface StopOrderRepository extends MongoRepository<StopOrder, String> {
+public interface LimitOrderRepository extends MongoRepository<LimitOrder, String> {
     @RestResource(path = "traderName", rel = "traderName")
-    public List<StopOrder> findStopOrderByTraderNameLike(@Param("traderName") String traderName);
+    public List<LimitOrder> findAllByTraderNameLike(String traderName);
 }

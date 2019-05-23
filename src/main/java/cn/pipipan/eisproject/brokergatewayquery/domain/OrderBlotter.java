@@ -3,8 +3,8 @@ package cn.pipipan.eisproject.brokergatewayquery.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
-public class OrderBlotterDTO {
+@Document(collection = "orderBlotterDTO")
+public class OrderBlotter {
     @Id
     private String id;
     private int count;
