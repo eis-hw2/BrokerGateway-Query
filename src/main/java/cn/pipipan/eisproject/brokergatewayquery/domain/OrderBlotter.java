@@ -1,7 +1,10 @@
 package cn.pipipan.eisproject.brokergatewayquery.domain;
 
+import cn.pipipan.eisproject.brokergatewayquery.domain.helper.Util;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Date;
 
 @Document(collection = "orderBlotterDTO")
 public class OrderBlotter {
@@ -15,6 +18,13 @@ public class OrderBlotter {
     private String buyerOrderId;
     private String sellerOrderId;
     private String marketDepthId;
+
+    public boolean isCreationTimeBetween(String start, String end){
+        Date startTime = Util.convertString2Date(start);
+        Date creationTime = Util.convertString2Date(getCreationTime());
+        Date endTime = Util.convertString2Date(end);
+        return startTime.before(creationTime) && endTime.after(creationTime);
+    }
 
     public String getBuyerOrderId() {
         return buyerOrderId;
