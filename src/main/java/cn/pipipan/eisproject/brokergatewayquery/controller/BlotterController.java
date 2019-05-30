@@ -17,7 +17,7 @@ public class BlotterController {
     OrderBlotterDTORepository orderBlotterDTORepository;
 
     @PostMapping("/orderBlotter")
-    public Response<String> processLimitOrder(@RequestParam("MarketDepthId")String MarketDepthId, @RequestParam("StartTime")String StartTime, @RequestParam("EndTime")String EndTime){
+    public Response<String> processLimitOrder(@RequestParam("marketDepthId")String MarketDepthId, @RequestParam("startTime")String StartTime, @RequestParam("endTime")String EndTime){
         List<OrderBlotter> originOrderBlotters = orderBlotterDTORepository.findByMarketDepthId(MarketDepthId);
         List<OrderBlotter> resultOrderBlotters;
         for(OrderBlotter ob : originOrderBlotters){
