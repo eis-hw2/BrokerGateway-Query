@@ -17,7 +17,7 @@ public class BlotterController {
     @Autowired 
     OrderBlotterDTORepository orderBlotterDTORepository;
 
-    @GetMapping("/orderBlotter")
+    @GetMapping("/orderBlotters")
     public Response<List<OrderBlotter>> processLimitOrder(@RequestParam("marketDepthId")String marketDepthId,
                                                           @RequestParam("startTime")String startTime,
                                                           @RequestParam("endTime")String endTime){
