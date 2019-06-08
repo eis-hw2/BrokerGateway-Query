@@ -11,4 +11,6 @@ import java.util.List;
 public interface LimitOrderRepository extends MongoRepository<LimitOrder, String> {
     @RestResource(path = "traderName", rel = "traderName")
     public List<LimitOrder> findAllByTraderNameLike(String traderName);
+    @RestResource(path = "clientId", rel = "clientId")
+    public LimitOrder findLimitOrderByClientIdEquals(String clientId);
 }

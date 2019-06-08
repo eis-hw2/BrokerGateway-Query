@@ -13,7 +13,17 @@ public class LimitOrder {
     private Side side;
     private Status status;
     private String creationTime;
-    String traderName;
+    private String traderName;
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    private String clientId;
 
     public String getTraderName() {
         return traderName;
