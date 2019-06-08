@@ -15,6 +15,7 @@ public class StopOrder{
     Status status;
     private String creationTime;
     String traderName;
+    String clientId;
 
     public String getTraderName() {
         return traderName;
@@ -95,5 +96,13 @@ public class StopOrder{
 
     public boolean isSeller() {
         return this.side.equals(Side.SELLER);
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 }

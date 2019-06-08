@@ -12,6 +12,7 @@ public class MarketOrder {
     private Side side;
     private String creationTime;
     String traderName;
+    private String clientId;
 
     public String getTraderName() {
         return traderName;
@@ -70,5 +71,13 @@ public class MarketOrder {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 }
