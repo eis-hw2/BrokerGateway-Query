@@ -12,4 +12,6 @@ import java.util.List;
 public interface StopOrderRepository extends MongoRepository<StopOrder, String> {
     @RestResource(path = "traderName", rel = "traderName")
     public List<StopOrder> findAllByTraderNameLike(@Param("traderName") String traderName);
+    @RestResource(path = "clientId", rel = "clientId")
+    public StopOrder findStopOrderByClientIdEquals(String clientId);
 }

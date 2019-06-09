@@ -13,6 +13,7 @@ public class MarketOrder {
     private String creationTime;
     private String traderName;
     private String futureName;
+    private String clientId;
 
     public String getFutureName() {
         return futureName;
@@ -78,5 +79,13 @@ public class MarketOrder {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 }

@@ -15,6 +15,7 @@ public class LimitOrder {
     private String creationTime;
     private String traderName;
     private String futureName;
+    private String clientId;
 
     public String getFutureName() {
         return futureName;
@@ -30,8 +31,6 @@ public class LimitOrder {
     public void setClientId(String clientId) {
         this.clientId = clientId;
     }
-
-    private String clientId;
 
     public String getTraderName() {
         return traderName;

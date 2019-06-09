@@ -11,4 +11,6 @@ import java.util.List;
 public interface MarketOrderRepository extends MongoRepository<MarketOrder, String> {
     @RestResource(path = "traderName", rel = "traderName")
     public List<MarketOrder> findAllByTraderNameLike(String traderName);
+    @RestResource(path = "clientId", rel = "clientId")
+    public MarketOrder findMarketOrderByClientIdEquals(String clientId);
 }
