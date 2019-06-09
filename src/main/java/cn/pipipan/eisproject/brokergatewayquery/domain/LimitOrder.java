@@ -17,6 +17,15 @@ public class LimitOrder {
     private String futureName;
     private String clientId;
     private int totalCount;
+    private String statusSwitchTime;
+
+    public String getStatusSwitchTime() {
+        return statusSwitchTime;
+    }
+
+    public void setStatusSwitchTime(String statusSwitchTime) {
+        this.statusSwitchTime = statusSwitchTime;
+    }
 
     public int getTotalCount() {
         return totalCount;

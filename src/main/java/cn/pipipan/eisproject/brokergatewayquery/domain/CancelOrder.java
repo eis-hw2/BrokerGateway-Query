@@ -16,6 +16,15 @@ public class CancelOrder {
     private String creationTime;
     private String traderName;
     private String futureName;
+    private String statusSwitchTime;
+
+    public String getStatusSwitchTime() {
+        return statusSwitchTime;
+    }
+
+    public void setStatusSwitchTime(String statusSwitchTime) {
+        this.statusSwitchTime = statusSwitchTime;
+    }
 
     public String getFutureName() {
         return futureName;
