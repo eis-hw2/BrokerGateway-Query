@@ -6,13 +6,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "marketOrderDTO")
 public class MarketOrder {
     @Id
-    String id;
+    private String id;
     private String marketDepthId;
     private int count;
     private Side side;
     private String creationTime;
-    String traderName;
+    private String traderName;
+    private String futureName;
 
+    public String getFutureName() {
+        return futureName;
+    }
+
+    public void setFutureName(String futureName) {
+        this.futureName = futureName;
+    }
     public String getTraderName() {
         return traderName;
     }

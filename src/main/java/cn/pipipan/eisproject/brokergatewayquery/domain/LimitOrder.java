@@ -14,7 +14,15 @@ public class LimitOrder {
     private Status status;
     private String creationTime;
     private String traderName;
+    private String futureName;
 
+    public String getFutureName() {
+        return futureName;
+    }
+
+    public void setFutureName(String futureName) {
+        this.futureName = futureName;
+    }
     public String getClientId() {
         return clientId;
     }

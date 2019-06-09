@@ -6,16 +6,24 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class CancelOrder {
     @Id
-    String id;
-    Type targetType;
-    int unitPrice;
-    Side side;
-    String targetId;
-    String marketDepthId;
-    Status status;
-    String creationTime;
-    String traderName;
+    private String id;
+    private Type targetType;
+    private int unitPrice;
+    private Side side;
+    private String targetId;
+    private String marketDepthId;
+    private Status status;
+    private String creationTime;
+    private String traderName;
+    private String futureName;
 
+    public String getFutureName() {
+        return futureName;
+    }
+
+    public void setFutureName(String futureName) {
+        this.futureName = futureName;
+    }
     public String getTraderName() {
         return traderName;
     }

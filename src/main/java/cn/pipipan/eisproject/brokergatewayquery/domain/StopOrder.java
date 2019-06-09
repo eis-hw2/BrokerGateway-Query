@@ -6,15 +6,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class StopOrder{
     @Id
-    String id;
-    Type targetType;
-    String marketDepthId;
-    int count;
-    Side side;
-    int unitPrice;
-    Status status;
+    private String id;
+    private Type targetType;
+    private String marketDepthId;
+    private int count;
+    private Side side;
+    private int unitPrice;
+    private Status status;
     private String creationTime;
-    String traderName;
+    private String traderName;
+    private String futureName;
+
+    public String getFutureName() {
+        return futureName;
+    }
+
+    public void setFutureName(String futureName) {
+        this.futureName = futureName;
+    }
 
     public String getTraderName() {
         return traderName;
