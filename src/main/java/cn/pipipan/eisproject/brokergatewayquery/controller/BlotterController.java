@@ -4,6 +4,8 @@ import cn.pipipan.eisproject.brokergatewayquery.domain.OrderBlotter;
 import cn.pipipan.eisproject.brokergatewayquery.domain.Response;
 import cn.pipipan.eisproject.brokergatewayquery.repository.OrderBlotterDTORepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,10 +23,16 @@ public class BlotterController {
     public Response<List<OrderBlotter>> processLimitOrder(@RequestParam("marketDepthId")String marketDepthId,
                                                           @RequestParam("startTime")String startTime,
                                                           @RequestParam("endTime")String endTime){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String traderName = authentication.getName();
         List<OrderBlotter> originOrderBlotters = orderBlotterDTORepository.findByMarketDepthId(marketDepthId);
         List<OrderBlotter> resultOrderBlotters = originOrderBlotters.stream().filter(orderBlotter ->
-                orderBlotter.isCreationTimeBetween(startTime, endTime)).collect(Collectors.toList());
+                orderBlotter.isCreationTimeBetween(startTime, endTime)).peek(orderBlotter -> {
+                    if (!(orderBlotter.getBuyerTraderName().equals(traderName) || orderBlotter.getSellerTraderName().equals(traderName))) {
+                        orderBlotter.setBuyerTraderName("");
+                        orderBlotter.setSellerTraderName("");
+                    }
+        }).collect(Collectors.toList());
         return new Response<>(resultOrderBlotters, 200, "OK");
     }
-
 }
