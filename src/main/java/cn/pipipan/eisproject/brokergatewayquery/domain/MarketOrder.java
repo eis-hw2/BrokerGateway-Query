@@ -14,6 +14,15 @@ public class MarketOrder {
     private String traderName;
     private String futureName;
     private String clientId;
+    private int totalCount;
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
 
     public String getFutureName() {
         return futureName;
