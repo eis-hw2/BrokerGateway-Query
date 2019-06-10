@@ -19,8 +19,8 @@ public class BlotterController {
     @Autowired 
     OrderBlotterDTORepository orderBlotterDTORepository;
 
-    @GetMapping("/orderBlotters")
-    public Response<List<OrderBlotter>> processLimitOrder(@RequestParam("marketDepthId")String marketDepthId,
+    @GetMapping("/orderBlotters/query")
+    public Response<List<OrderBlotter>> findByQuery(@RequestParam("marketDepthId")String marketDepthId,
                                                           @RequestParam("startTime")String startTime,
                                                           @RequestParam("endTime")String endTime){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -32,6 +32,20 @@ public class BlotterController {
                         orderBlotter.setBuyerTraderName("");
                         orderBlotter.setSellerTraderName("");
                     }
+        }).collect(Collectors.toList());
+        return new Response<>(resultOrderBlotters, 200, "OK");
+    }
+
+    @GetMapping("/orderBlotters")
+    public Response<List<OrderBlotter>> findAll(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String traderName = authentication.getName();
+        List<OrderBlotter> originOrderBlotters = orderBlotterDTORepository.findAll();
+        List<OrderBlotter> resultOrderBlotters = originOrderBlotters.stream().peek(orderBlotter -> {
+            if (!(orderBlotter.getBuyerTraderName().equals(traderName) || orderBlotter.getSellerTraderName().equals(traderName))) {
+                orderBlotter.setBuyerTraderName("");
+                orderBlotter.setSellerTraderName("");
+            }
         }).collect(Collectors.toList());
         return new Response<>(resultOrderBlotters, 200, "OK");
     }
