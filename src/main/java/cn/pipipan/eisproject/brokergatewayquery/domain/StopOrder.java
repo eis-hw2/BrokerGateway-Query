@@ -9,7 +9,7 @@ public class StopOrder{
     private String id;
     private Type targetType;
     private String marketDepthId;
-    private int count;
+    private int totalCount;
     private Side side;
     private int unitPrice;
     private Status status;
@@ -76,12 +76,12 @@ public class StopOrder{
         this.marketDepthId = marketDepthId;
     }
 
-    public int getCount() {
-        return count;
+    public int getTotalCount() {
+        return totalCount;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
     }
 
     public Side getSide() {
